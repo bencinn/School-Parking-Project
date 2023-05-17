@@ -7,6 +7,10 @@ let sluggish = 2
 	function handleSubmit() {
 		alert(`${selected_handler}`);
 	}
+    export let data;
+    let { Parking_lot } = data;
+    $: ({ Parking_lot } = data);
+ console.log(Parking_lot);
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>
@@ -41,3 +45,9 @@ let sluggish = 2
         <input type="submit" id="btn" value="ลงทะเบียนใช้ที่จอดรถ">
     </div>
 </form>
+
+  <ul>
+    {#each Parking_lot as parked}
+      <li style="color: white">{parked.parker_handler}{' '}{parked.parker_name}{' | '}{parked.id}</li>
+    {/each}
+  </ul>

@@ -25,23 +25,7 @@
             </div>
             <div id="slotdisplay">
                 <input type="text" name="slot" style="display: none;">
-                <h2 id="title2" style="font-size: 22px;">
-                    <?php
-                        if (isset($_GET['slot']) == true and $_GET['slot'] >= 1 and $_GET['slot'] <= 30) {
-                            $slot = intval($_GET['slot']);
-                            if ($slot < 10) {
-                                echo "จอดรถช่องที่ <span style='color: var(--tri)'>0$slot</span>";
-                            } else {
-                                echo "จอดรถช่องที่ <span style='color: var(--tri)'>$slot</span>";
-                            };
-                        } else {
-                                echo "  <span style='color: crimson'>
-                                        <span>ช่องจอดรถไม่ถูกต้อง</span><br>
-                                        <span style='margin: 0; font-size: 14px;'>กรุณาสะแกน QR Code ใหม่</span>
-                                    </span>";
-                        };
-                    ?>
-                </h2>
+                <h2 id="title2" style="font-size: 22px;">จอดรถช่องที่ <span style='color: var(--tri)'>$slot</span><!--PHP USED TO BE HERE---></h2>
             </div>
         </div>
     </fieldset>

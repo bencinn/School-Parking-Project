@@ -81,6 +81,7 @@ hr {
     padding: 10px;
     margin: 8px 0px 0px 0px;
     font-size: 20px;
+    border: none;
 }
 
 #btn:hover {
@@ -225,4 +226,27 @@ input {
 #info div {
     display: flex;
     justify-content: space-evenly;
+}
+
+/*Admin Panel*/
+.zone {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px 0px 10px 0px;
+}
+
+.zone > div {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--pri);
+    border-radius: 15px;
+    max-width: 9%;
+    padding: 10px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
 }

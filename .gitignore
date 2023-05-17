@@ -1,0 +1,9 @@
+sveltekit/node_modules
+sveltekit/build
+sveltekit/.svelte-kit
+sveltekit/package
+sveltekit/.env
+sveltekit/.env.*
+sveltekit/!.env.example
+sveltekit/vite.config.js.timestamp-*
+sveltekit/vite.config.ts.timestamp-*

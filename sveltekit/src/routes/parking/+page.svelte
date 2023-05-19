@@ -10,7 +10,7 @@ let sluggish = 2
     export let data;
     let { Parking_lot } = data;
     $: ({ Parking_lot } = data);
- console.log(Parking_lot);
+    console.log(Parking_lot);
 </script>
 
 <form on:submit|preventDefault={handleSubmit}>

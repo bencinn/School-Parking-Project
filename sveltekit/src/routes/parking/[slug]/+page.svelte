@@ -45,7 +45,7 @@
   <ul style="color: white">
       ที่จอดรถที่ใช้แล้ว
     {#each Parking_lot as parked}
-      <li style="color: white">{parked.parked_where}</li>
+        <li style="color: white">{parked.parked_where} <a data-sveltekit-reload href={"/parking/" + parked.parked_where}>(Park out)</a></li>
     {/each}
   </ul>
 {/if}

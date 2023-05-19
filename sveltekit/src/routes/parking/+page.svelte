@@ -4,32 +4,28 @@ let sluggish = 2
  let selected_name = '';
  let selected_surname = '';
  let selected_position = "นักเรียน";
-	function handleSubmit() {
-		alert(`${selected_handler}`);
-	}
     export let data;
     let { Parking_lot } = data;
     $: ({ Parking_lot } = data);
- console.log(Parking_lot);
 </script>
 
-<form on:submit|preventDefault={handleSubmit}>
+<form method="POST">
     <fieldset id="parkingform">
         <legend>โปรดกรอกข้อมูลส่วนตัว</legend>
         <div id="nameinp">
-            <select bind:value={selected_handler} required>
+            <select name="handler" required>
                 <option value="นาย" selected>นาย</option>
                 <option value="นาง">นาง</option>
                 <option value="นางสาว">นางสาว</option>
                 <option value="อื่นๆ/ไม่ระบุ">อื่นๆ/ไม่ระบุ</option>
             </select>
-            <input type="text" bind:value={selected_name} placeholder="ชื่อผู้จอดรถ" required>
-            <input type="text" bind:value={selected_surname} placeholder="นามสกุลผู้จอดรถ" required>
+            <input type="text" name="name" placeholder="ชื่อผู้จอดรถ" required>
+            <input type="text" name="surname" placeholder="นามสกุลผู้จอดรถ" required>
         </div>
         <div id="addinp">
             <div>
                 <input type="text" name="phone" placeholder="โทรศัพท์ (0XX-XXX-XXXX)" pattern="[0-9]&#123;3&#125;-[0-9]&#123;3&#125;-[0-9]&#123;4&#125;" style="margin-left: 5px;">
-                <select required bind:value={selected_position}>
+                <select required name="position">
                     <option value="นักเรียน" selected>นักเรียน</option>
                     <option value="คุณครู">คุณครู</option>
                     <option value="ผู้ปกครอง/แขก">ผู้ปกครอง/แขก</option>
@@ -46,8 +42,9 @@ let sluggish = 2
     </div>
 </form>
 
-  <ul>
+  <ul style="color: white">
+      ที่จอดรถที่ใช้แล้ว
     {#each Parking_lot as parked}
-      <li style="color: white">{parked.parker_handler}{' '}{parked.parker_name}{' | '}{parked.id}</li>
+      <li style="color: white">{parked.parked_where}</li>
     {/each}
   </ul>

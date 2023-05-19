@@ -1,13 +1,14 @@
 <script>
-let sluggish = 2
- let selected_handler = "นาย";
- let selected_name = '';
- let selected_surname = '';
- let selected_position = "นักเรียน";
     export let data;
-    let { Parking_lot } = data;
-    $: ({ Parking_lot } = data);
+    let { Parking_lot, slug } = data;
+    $: ({ Parking_lot, slug } = data);
+ const sluggish = slug;
 </script>
+
+
+{#if Parking_lot.some(item => item.parked_where == sluggish)}
+    <!-- Implementing Log-out -->
+    {:else}
 
 <form method="POST">
     <fieldset id="parkingform">
@@ -33,7 +34,7 @@ let sluggish = 2
             </div>
             <div id="slotdisplay">
                 <input type="text" name="slot" style="display: none;">
-                <h2 id="title2" style="font-size: 22px;">จอดรถช่องที่ <span style='color: var(--tri)'>{sluggish}</span><!--PHP USED TO BE HERE---></h2>
+                <h2 id="title2" style="font-size: 22px;">จอดรถช่องที่ <input type="text" name="whereis" readonly style='color: var(--tri)' value={sluggish}><!--PHP USED TO BE HERE---></h2>
             </div>
         </div>
     </fieldset>
@@ -41,10 +42,10 @@ let sluggish = 2
         <input type="submit" id="btn" value="ลงทะเบียนใช้ที่จอดรถ">
     </div>
 </form>
-
   <ul style="color: white">
       ที่จอดรถที่ใช้แล้ว
     {#each Parking_lot as parked}
       <li style="color: white">{parked.parked_where}</li>
     {/each}
   </ul>
+{/if}

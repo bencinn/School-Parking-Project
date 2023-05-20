@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: chakrapetch;
-    src: url('./resources/chakrapetch-medium.ttf');
+    src: url('../resources/chakrapetch-medium.ttf');
 }
 
 * {

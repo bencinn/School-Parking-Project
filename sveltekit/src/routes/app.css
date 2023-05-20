@@ -10,7 +10,7 @@
 
 @font-face {
 	font-family: chakrapetch;
-	src: url('./resources/chakrapetch-medium.ttf');
+	src: url('../fonts/chakrapetch-medium.ttf');
 }
 
 * {
@@ -121,7 +121,8 @@ fieldset#parkingform {
 }
 
 #addinp input[type='text'] {
-	width: 60% !important;
+	width: 40% !important;
+	text-align: center;
 }
 
 #nameinp select,

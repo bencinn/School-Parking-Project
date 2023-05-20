@@ -1,15 +1,14 @@
 <script>
 	export let data;
-	let { Parking_lot } = data;
-	$: ({ Parking_lot } = data);
-	console.log(Parking_lot);
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
-	<!-- Implementing Log-out -->
+	<span style="color: white !important;"
+		>This parking lot has already been parked. <a href={'/logout/' + sluggish}>(Log out)</a></span
+	>
 {:else}
 	<form method="POST">
 		<fieldset id="parkingform">

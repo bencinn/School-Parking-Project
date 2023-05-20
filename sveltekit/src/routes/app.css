@@ -1,5 +1,10 @@
 /*Universal*/
 
+html{
+	height: 100%;
+	width: 100%;
+}
+
 :root {
 	--pri: #165e68;
 	--sec: #2397a7;
@@ -60,7 +65,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 90%;
+	height: 100%;
 }
 
 hr {
@@ -80,15 +85,41 @@ hr {
 	padding: 10px;
 	margin: 8px 0px 0px 0px;
 	font-size: 20px;
+	text-decoration: none;
+}
+
+#logoutbtn:hover {
+	background-color: rgb(130, 8, 8);
+}
+
+#logoutbtn {
+	background-color: crimson;
+	color: white;
+	border-radius: 8px;
+	transition: 250ms;
+	padding: 10px;
+	margin: 8px 0px 0px 0px;
+	font-size: 20px;
+	text-decoration: none;
 }
 
 #btn:hover {
 	background-color: var(--tri);
 }
 
+#plainlink {
+	color: var(--sec);
+	text-decoration: underline;
+}
+
+#plainlink:hover {
+	color: var(--tri);
+	text-decoration: underline;
+}
+
 /*Parking Page*/
 legend {
-	color: var(--sec);
+	color: var(--tri);
 }
 
 fieldset {
@@ -121,8 +152,7 @@ fieldset#parkingform {
 }
 
 #addinp input[type='text'] {
-	width: 40% !important;
-	text-align: center;
+	width: 55% !important;
 }
 
 #nameinp select,
@@ -170,7 +200,7 @@ input {
 	align-items: center;
 }
 
-#addinp div:nth-child(1) {
+#addinp > div:nth-child(1) {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -190,39 +220,25 @@ input {
 	margin: 0;
 }
 
-#time {
-	display: grid;
-	grid-template-columns: 70% 30%;
-	align-items: center;
+#slotdisplay input[type='text'] {
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: 600;
+	color: var(--sec); 
+	padding-left: 15px; 
+	width: 30% !important;
 }
 
-#time > div:nth-child(1) {
-	display: grid;
-	grid-template-columns: 47% 53%;
-	grid-template-rows: 50px 50px 50px;
-	padding-left: 10px;
-	justify-content: start;
-	align-items: center;
+p#info {
+	color: white; 
+	text-indent: 2rem; 
+	font-size: 18px; 
+	margin: 0px 10px 10px 10px; 
+	line-height: 24px;
 }
 
-#time > div:nth-child(1) span {
-	text-align: left;
-}
 
-#currenttime,
-#parktime,
-#parkperiod {
-	color: var(--tri);
-	font-size: 27px;
-	font-weight: bold;
-}
-
-#info {
-	display: flex;
-	flex-direction: column;
-}
-
-#info div {
-	display: flex;
-	justify-content: space-evenly;
+#k {
+	color:lime
 }

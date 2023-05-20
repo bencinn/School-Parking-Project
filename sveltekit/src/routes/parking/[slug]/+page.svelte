@@ -6,9 +6,26 @@
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
-	<span style="color: white !important;"
-		>This parking lot has already been parked. <a href={'/logout/' + sluggish}>(Log out)</a></span
-	>
+	<h2 style="color: crimson !important; text-align: center; font-size: 24px; margin-bottom: 10px;">ช่องจอดรถช่องนี้ไม่ว่าง</h2>
+	<p id="info" style="line-height: 28px;">ขออภัย ช่องจอดรถช่องนี้ได้มีผู้จอดแล้ว กรุณาเลือกช่องจอดรถอื่นๆ ที่ยังว่างอยู่ ท่านสามารถดูจำนวนที่จอดที่เหลือในบริเวณโรงเรียนได้<a href="./" id="plainlink">ที่นี่</a> หรือหากผู้ใช้ท่านก่อนหน้าลืมออกจากระบบ กรุณาแจ้งผู้ดูแลระบบได้<a href="./" id="plainlink">ที่นี่</a></p>
+	<fieldset>
+		<legend>ออกจากระบบ</legend>
+		<p id="info">สำหรับท่านที่เป็นผู้จอดรถในช่องจอดรถนี้ หากท่านเสร็จธุระของท่านและต้องการจะออกจากช่องจอดรถช่องนี้แล้ว กรุณากดปุ่ม "ออกจากระบบ" เพื่อทำการออกระบบและเปิดช่องจอดรถให้ผู้ใช้ที่จอดรถท่าน<wbr>อื่นๆ ได้มาใช้ช่องจอดรถนี้ต่อจากท่าน</p>
+		<div id="slotdisplay">
+			<h2 id="title2" style="font-size: 20px;">
+				ช่องจอดรถช่องที่ <input
+					type="text"
+					name="whereis"
+					readonly
+					style="color: var(--tri); padding-left: 15px; width: 30% !important;"
+					value={sluggish}
+				/><!--PHP USED TO BE HERE--->
+			</h2>
+		</div>
+		<div style="display: flex; justify-content: center;">
+			<a href={'/logout/' + sluggish} id="btn">ออกจากระบบ</a>
+		</div>
+	</fieldset>
 {:else}
 	<form method="POST">
 		<fieldset id="parkingform">
@@ -31,6 +48,7 @@
 						placeholder="โทรศัพท์ (0XX-XXX-XXXX)"
 						pattern="[0-9]&#123;3&#125;-[0-9]&#123;3&#125;-[0-9]&#123;4&#125;"
 						style="margin-left: 5px;"
+						required
 					/>
 					<select required name="position">
 						<option value="นักเรียน" selected>นักเรียน</option>
@@ -39,13 +57,11 @@
 					</select>
 				</div>
 				<div id="slotdisplay">
-					<input type="text" name="slot" style="display: none;" />
-					<h2 id="title2" style="font-size: 22px;">
-						จอดรถช่องที่ <input
+					<h2 id="title2" style="font-size: 20px;">
+						ช่องจอดรถช่องที่ <input
 							type="text"
 							name="whereis"
 							readonly
-							style="color: var(--tri)"
 							value={sluggish}
 						/><!--PHP USED TO BE HERE--->
 					</h2>
@@ -56,13 +72,15 @@
 			<input type="submit" id="btn" value="ลงทะเบียนใช้ที่จอดรถ" />
 		</div>
 	</form>
-	<ul style="color: white">
-		ที่จอดรถที่ใช้แล้ว
-		{#each Parking_lot as parked}
-			<li style="color: white">
-				{parked.parked_where}
-				<a data-sveltekit-reload href={'/parking/' + parked.parked_where}>(Park out)</a>
-			</li>
-		{/each}
-	</ul>
+	<fieldset style="margin-top: 10px;">
+		<legend>ที่จอดรถที่ได้ถูกใช้แล้ว</legend>
+		<ul style="color: white; margin: 0 0 10px 0; padding-left: 5px; list-style-type: none;">
+			{#each Parking_lot as parked}
+				<li style="color: white; margin-top: 10px;">
+					ช่องจอดรถที่ {parked.parked_where}
+					<a data-sveltekit-reload href={'/parking/' + parked.parked_where} id="btn" style="font-size: 15px; padding: 5px;">ออกจากระบบ</a>
+				</li>
+			{/each}
+		</ul>
+	</fieldset>
 {/if}

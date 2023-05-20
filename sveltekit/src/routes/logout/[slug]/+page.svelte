@@ -8,8 +8,10 @@
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
-	<form method="POST">
+	<form method="POST" autocomplete="off">
 		<fieldset id="parkingform">
+			<legend>ยืนยันการออกระบบ</legend>
+			<p id="info" style="line-height: 28px;">ในการยืนยันตัวตนของท่านเพื่อใช้ในการออกระบบ กรุณากรอกหมายเลขโทรศัพท์ของท่าน ก่อนกดปุ่ม "ยืนยันการออกจากที่จอดรถ"</p>
 			<div id="addinp">
 				<div>
 					<input
@@ -17,12 +19,13 @@
 						name="tel"
 						placeholder="โทรศัพท์ (0XX-XXX-XXXX)"
 						pattern="[0-9]&#123;3&#125;-[0-9]&#123;3&#125;-[0-9]&#123;4&#125;"
-						style="margin-left: 5px;"
+						style="margin-left: 5px; color: crimson;"
+						required
 					/>
 				</div>
 				<div id="slotdisplay">
 					<h2 id="title2" style="font-size: 22px;">
-						จอดรถช่องที่ <input
+						ช่องจอดรถช่องที่ <input
 							type="text"
 							name="whereis"
 							readonly
@@ -34,11 +37,30 @@
 			</div>
 		</fieldset>
 		<div style="display: flex; justify-content: center;">
-			<input type="submit" id="btn" value="ลงทะเบียนใช้ที่จอดรถ" />
+			<input type="submit" id="logoutbtn" value="ลงทะเบียนออกจากที่จอดรถ" />
 		</div>
 	</form>
 {:else if form?.success}
-	<span style="color: white">success</span>
+	<h2 style="color: limegreen !important; text-align: center; font-size: 24px; margin-bottom: 10px;">ออกจากระบบสำเร็จ</h2>
+	<p id="info">ท่านได้ออกจากระบบอย่างสำเร็จแล้ว ท่านสามารถปิดหน้านี้ได้เลย ขอบคุณที่มาเยี่ยมชมโรงเรียนภูเก็ตวิทยาลัยและขอให้เดินทางอย่างสวัสดิภาพ</p>
 {:else}
-	<span style="color: white !important;">This parking lot has not been parked yet.</span>
+	<h2 style="color: crimson !important; text-align: center; font-size: 24px; margin-bottom: 10px;">ไม่สามารถออกจากระบบได้</h2>
+	<fieldset>
+		<legend>ไม่สามารถออกจากช่องจอดรถช่องนี้ได้</legend>
+		<p id="info">ช่องจอดรถช่องนี้ยังไม่มีผู้จอด ท่านจึงไม่สามารถทำการออกจากระบบได้ หากท่านต้องการจอดรถของท่านในช่องจอดรถนี้ กรุณากดปุ่ม "เข้าจอดช่องจอดรถช่องนี้" เพื่อดำเนินการเข้าสู่นะบบ</p>
+		<div id="slotdisplay">
+			<h2 id="title2" style="font-size: 22px;">
+				ช่องจอดรถช่องที่ <input
+					type="text"
+					name="whereis"
+					readonly
+					style="color: var(--tri)"
+					value={sluggish}
+				/>
+			</h2>
+		</div>
+	</fieldset>
+	<div style="display: flex; justify-content: center;">
+		<a id="btn" href={'/parking/' + sluggish}>เข้าจอดช่องจอดรถช่องนี้</a>
+	</div>
 {/if}

@@ -1,5 +1,5 @@
 # School Parking Project
-The project that manages the parking spaces in schools. This is a test version, and ***NOT THE FINISHED VERSION***! There're both the software and hardware part, and in this respository, there'll only be just the software part.
+The project that manages the parking spaces in schools. This is a test version, and ***NOT THE FINISHED VERSION***! There're both the software and hardware part, so in this respository, there'll only be just the software part.
 
 ## How To Use It
 ### 1. Entering The School

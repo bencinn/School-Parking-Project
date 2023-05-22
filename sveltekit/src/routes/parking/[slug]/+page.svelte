@@ -7,7 +7,7 @@
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
 	<h2 style="color: crimson !important; text-align: center; font-size: 24px; margin-bottom: 10px;">ช่องจอดรถช่องนี้ไม่ว่าง</h2>
-	<p id="info" style="line-height: 28px;">ขออภัย ช่องจอดรถช่องนี้ได้มีผู้จอดแล้ว กรุณาเลือกช่องจอดรถอื่นๆ ที่ยังว่างอยู่ ท่านสามารถดูจำนวนที่จอดที่เหลือในบริเวณโรงเรียนได้<a href="./" id="plainlink">ที่นี่</a> หรือหากผู้ใช้ท่านก่อนหน้าลืมออกจากระบบ กรุณาแจ้งผู้ดูแลระบบได้<a href="./" id="plainlink">ที่นี่</a></p>
+	<p id="info" style="line-height: 28px;">ขออภัย ช่องจอดรถช่องนี้ได้มีผู้จอดแล้ว กรุณาเลือกช่องจอดรถอื่นๆ ที่ยังว่างอยู่ ท่านสามารถดูจำนวนที่จอดที่เหลือในบริเวณโรงเรียนได้<a href="../" id="plainlink">ที่นี่</a> หรือหากผู้ใช้ท่านก่อนหน้าลืมออกจากระบบ กรุณาแจ้งผู้ดูแลระบบได้<a href="mailto:smt36410@pkw.ac.th" id="plainlink">ที่นี่</a></p>
 	<fieldset>
 		<legend>ออกจากระบบ</legend>
 		<p id="info">สำหรับท่านที่เป็นผู้จอดรถในช่องจอดรถนี้ หากท่านเสร็จธุระของท่านและต้องการจะออกจากช่องจอดรถช่องนี้แล้ว กรุณากดปุ่ม "ออกจากระบบ" เพื่อทำการออกระบบและเปิดช่องจอดรถให้ผู้ใช้ที่จอดรถท่าน<wbr>อื่นๆ ได้มาใช้ช่องจอดรถนี้ต่อจากท่าน</p>
@@ -23,7 +23,7 @@
 			</h2>
 		</div>
 		<div style="display: flex; justify-content: center;">
-			<a href={'/logout/' + sluggish} id="btn">ออกจากระบบ</a>
+			<a href={'/logout/' + sluggish} id="logoutbtn">ออกจากระบบ</a>
 		</div>
 	</fieldset>
 {:else}

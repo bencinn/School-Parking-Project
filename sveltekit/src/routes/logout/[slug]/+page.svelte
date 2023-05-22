@@ -11,7 +11,7 @@
 	<form method="POST" autocomplete="off">
 		<fieldset id="parkingform">
 			<legend>ยืนยันการออกระบบ</legend>
-			<p id="info" style="line-height: 28px;">ในการยืนยันตัวตนของท่านเพื่อใช้ในการออกระบบ กรุณากรอกหมายเลขโทรศัพท์ของท่าน ก่อนกดปุ่ม "ยืนยันการออกจากที่จอดรถ"</p>
+			<p id="info" style="line-height: 28px;">กรุณากรอกหมายเลขโทรศัพท์ของท่าน เพื่อใช้ในการยืนยันตัวตนของท่านก่อนออกจากระบบ เมื่อเสร็จแล้ว กรุณากดปุ่ม "ยืนยันการออกจากที่จอดรถ"</p>
 			<div id="addinp">
 				<div>
 					<input
@@ -19,7 +19,7 @@
 						name="tel"
 						placeholder="โทรศัพท์ (0XX-XXX-XXXX)"
 						pattern="[0-9]&#123;3&#125;-[0-9]&#123;3&#125;-[0-9]&#123;4&#125;"
-						style="margin-left: 5px; color: crimson;"
+						style="margin-left: 5px; color: crimson; font-size: 20px;"
 						required
 					/>
 				</div>
@@ -37,7 +37,7 @@
 			</div>
 		</fieldset>
 		<div style="display: flex; justify-content: center;">
-			<input type="submit" id="logoutbtn" value="ลงทะเบียนออกจากที่จอดรถ" />
+			<input type="submit" id="logoutbtn" value="ยืนยันการออกจากที่จอดรถ" />
 		</div>
 	</form>
 {:else if form?.success}
@@ -47,7 +47,7 @@
 	<h2 style="color: crimson !important; text-align: center; font-size: 24px; margin-bottom: 10px;">ไม่สามารถออกจากระบบได้</h2>
 	<fieldset>
 		<legend>ไม่สามารถออกจากช่องจอดรถช่องนี้ได้</legend>
-		<p id="info">ช่องจอดรถช่องนี้ยังไม่มีผู้จอด ท่านจึงไม่สามารถทำการออกจากระบบได้ หากท่านต้องการจอดรถของท่านในช่องจอดรถนี้ กรุณากดปุ่ม "เข้าจอดช่องจอดรถช่องนี้" เพื่อดำเนินการเข้าสู่นะบบ</p>
+		<p id="info">ช่องจอดรถช่องนี้ยังไม่มีผู้จอด ท่านจึงไม่สามารถทำการออกจากระบบได้ หากท่านต้องการจอดรถของท่านในช่องจอดรถนี้ กรุณากดปุ่ม "เข้าจอดช่องจอดรถช่องนี้" เพื่อดำเนินการเข้าสู่ระบบ</p>
 		<div id="slotdisplay">
 			<h2 id="title2" style="font-size: 22px;">
 				ช่องจอดรถช่องที่ <input

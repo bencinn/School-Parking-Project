@@ -1,6 +1,6 @@
 /*Universal*/
 
-html{
+html {
 	height: 100%;
 	width: 100%;
 }
@@ -229,19 +229,18 @@ input {
 	border-radius: 10px;
 	font-size: 20px;
 	font-weight: 600;
-	color: var(--sec); 
-	padding-left: 15px; 
+	color: var(--sec);
+	padding-left: 15px;
 	width: 30% !important;
 }
 
 p#info {
-	color: white; 
-	text-indent: 2rem; 
-	font-size: 18px; 
-	margin: 0px 10px 10px 10px; 
+	color: white;
+	text-indent: 2rem;
+	font-size: 18px;
+	margin: 0px 10px 10px 10px;
 	line-height: 24px;
 }
-
 
 #parkinfo {
 	color: white;
@@ -256,4 +255,3 @@ p#info {
 #parkinfo > div {
 	margin: 5px;
 }
-

@@ -29,8 +29,8 @@ export const actions = {
 					.from('Parking_lot')
 					.delete()
 					.eq('parked_where', parseInt(formdata.get('whereis')));
-					console.log(formdata.get('whereis'));
-					
+				console.log(formdata.get('whereis'));
+
 				if (deleteError) {
 					console.log(deleteError);
 					return { success: false };

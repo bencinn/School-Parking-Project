@@ -298,3 +298,40 @@ input[type="checkbox"]:checked {
 	gap: 5px;
 	font-size: 20px;
 }
+
+#adminlogin {
+	display: grid;
+	grid-template-columns: 35% 65% ;
+	gap: 15px;
+	align-items: center;
+}
+
+#adminlogin input {
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 16px;
+	color: var(--gray);
+	font-weight: 600;
+	width: 60%;
+}
+
+#adminlogin input:not(input[type=submit]):focus:invalid {
+	animation-name: Invalid;
+	animation-duration: 400ms;
+	border: 3px solid crimson;
+	animation-iteration-count: 2;
+}
+
+@keyframes Invalid {
+	0% {
+		transform: translateX(-5px);
+	}
+
+	50% {
+		transform: translateX(5px);
+	}
+
+	100% {
+		transform: translateX(-5px);
+	}
+}

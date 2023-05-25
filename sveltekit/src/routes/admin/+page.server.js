@@ -16,27 +16,23 @@ export const actions = {
 		const signoutList = formdata.getAll('logout');
 		const username = formdata.get('email');
 		const password = formdata.get('password');
-		const { data, error } = await supabase_admin.from('admin').select("*").eq(
-			'email', username
-		);
-        bcrypt.compare(password, data[0].passwordHash, async function(err, result) {
-            if (result == true) {
-for (let i = 0; i < signoutList.length; i++) {
-			const { data, error } = await supabase_admin
-				.from('Parking_lot')
-				.delete()
-				.eq('parked_where', parseInt(signoutList[i]));
-			if (error === null) {
+		const { data, error } = await supabase_admin.from('admin').select('*').eq('email', username);
+		bcrypt.compare(password, data[0].passwordHash, async function (err, result) {
+			if (result == true) {
+				for (let i = 0; i < signoutList.length; i++) {
+					const { data, error } = await supabase_admin
+						.from('Parking_lot')
+						.delete()
+						.eq('parked_where', parseInt(signoutList[i]));
+					if (error === null) {
+					} else {
+						return { success: false };
+					}
+				}
 			} else {
 				return { success: false };
 			}
-		}
-
-            }
-            else {
-                return {success: false};
-            }
-        })
+		});
 		return { success: true };
 	}
 };

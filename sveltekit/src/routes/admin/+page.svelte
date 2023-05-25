@@ -3,11 +3,9 @@
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
-
-    let GrantAccess = false;
 </script>
 
-{#if Parking_lot.length > 0 && GrantAccess === true}
+{#if Parking_lot.length > 0}
     <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
         แผงควบคุมที่จอดรถ
     </h2>
@@ -30,7 +28,7 @@
             <input type="submit" id="logoutbtn" value="บังคับออกจากที่จอดรถ" />
         </div>
     </form>
-{:else if Parking_lot.length == 0 && GrantAccess === true}
+{:else}
     <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
         แผงควบคุมที่จอดรถ
     </h2>
@@ -38,22 +36,4 @@
         <legend>ที่จอดรถที่ได้ถูกใช้แล้ว</legend>
         <h2 style="color: crimson !important; text-align: center; font-size: 22px; margin-bottom: 10px;">ไม่มีรถจอดในที่จอดรถ</h2>
     </fieldset>
-{:else if GrantAccess === false}
-    <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
-        เข้าสู่แผงควบคุมระบบ
-    </h2>
-    <form method="post" autocomplete="off">
-        <fieldset style="margin-top: 10px; padding: 10px;">
-            <legend>เข้าสู่แผงควบคุมระบบ</legend>
-            <div id="adminlogin">
-                <span style="color: white; font-size: 20px; text-align: right;">อีเมล</span>
-                <input type="email" name="email" required placeholder="อีเมล"/>
-                <span style="color: white; font-size: 20px; text-align: right;">รหัสผ่าน</span>
-                <input type="password" name="password" required placeholder="รหัสผ่าน"/>
-            </div>
-        </fieldset>
-        <div style="display: flex; justify-content: center;">
-            <input type="submit" id="btn" value="เข้าสู่แผงควบคุม" />
-        </div>
-    </form> 
 {/if}

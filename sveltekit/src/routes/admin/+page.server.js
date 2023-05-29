@@ -1,5 +1,5 @@
 import { supabase_admin } from '$lib/supabaseClient';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt/bcrypt.js';
 
 export async function load({ params, cookies }) {
 	const { data } = await supabase_admin.from('Parking_lot').select('parked_where');

@@ -81,6 +81,7 @@
 					</h2>
 				</div>
 			</div>
+			<div style="color: white; align-self: flex-start; margin-left: 8px;">หมายเลขโทรศัพท์ (0XX-XXX-XXXX)</div>
 		</fieldset>
 		<div style="display: flex; justify-content: center;">
 			<input type="submit" id="btn" value="ลงทะเบียนใช้ที่จอดรถ" />

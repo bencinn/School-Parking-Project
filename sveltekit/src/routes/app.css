@@ -301,7 +301,8 @@ input[type='checkbox']:checked {
 }
 
 #flgout input[type=email],
-#flgout input[type=password] {
+#flgout input[type=password],
+#flgout input[type=text] {
 	padding: 10px;
 	border-radius: 10px;
 	font-size: 16px;

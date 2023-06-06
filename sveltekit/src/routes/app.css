@@ -310,3 +310,25 @@ input[type='checkbox']:checked {
 	font-weight: 600;
 	width: 40%;
 }
+
+#admintable {
+	width: 90%;
+	margin: auto;
+}
+
+#admintable,
+#admintable tr,
+#admintable td {
+	border: 1px solid white;
+	border-collapse: collapse;
+	padding: 5px;
+	font-size: 18px;
+}
+
+#admintable tr:nth-child(1) {
+	background-color: var(--pri);
+	color: white;
+	font-size: 20px;
+	font-weight: 550;
+	text-align: center;
+}

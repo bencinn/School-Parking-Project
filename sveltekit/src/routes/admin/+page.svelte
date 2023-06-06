@@ -17,10 +17,12 @@
 		</h2>
 	{:else}
 		<form method="POST" id="flgout">
-			<table>
+			<table id="admintable">
 				<tr>
-					<td></td>
+					<td style="width: 30px;">ออก<br>ระบบ</td>
 					<td>ช่องที่</td>
+					<td>คำนำหน้า</td>
+					<td>ตำแหน่ง</td>
 					<td>ชื่อ</td>
 					<td>สกุล</td>
 					<td>โทร</td>
@@ -37,6 +39,16 @@
 						</td>
 						<td>
 							<span style="color: white">
+								handler
+							</span>
+						</td>
+						<td>
+							<span style="color: white">
+								position
+							</span>
+						</td>
+						<td>
+							<span style="color: white">
 								name
 							</span>
 						</td>
@@ -47,7 +59,7 @@
 						</td>
 						<td>
 							<span style="color: white">
-								tel.
+								063-541-7296
 							</span>
 						</td>
 					</tr>

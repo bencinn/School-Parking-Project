@@ -32,7 +32,9 @@
 				{#each Parking_lot as parked}
 					<tr>
 						<td>
-							<input type="checkbox" name="logout" value={parked.parked_where} />
+							<div style="display: flex; justify-content: center; align-items: center;">
+								<input type="checkbox" name="logout" value={parked.parked_where} />
+							</div>
 						</td>
 						<td>
 							<div style="color: white; text-align: center;">

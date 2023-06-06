@@ -38,7 +38,7 @@
 				</div>
 				<div style="display: grid; grid-template-columns: 55% 1% 2% 33%; margin: 5px 0px 10px 0px;">
 					<div></div>
-					<div><input type="checkbox" on:click|preventDefault={ShowPWD(adminpwd)}></div>
+					<div><input type="checkbox"></div>
 					<div></div>
 					<div>แสดงรหัสผ่าน</div>
 				</div>

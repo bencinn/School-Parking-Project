@@ -34,9 +34,9 @@
 							<input type="checkbox" name="logout" value={parked.parked_where} />
 						</td>
 						<td>
-							<span style="color: white;">
+							<div style="color: white; text-align: center;">
 								{parked.parked_where}
-							</span>
+							</div>
 						</td>
 						<td>
 							<span style="color: white">
@@ -68,15 +68,14 @@
 			</table>
 			<div style="display: flex; flex-direction: column">
 				<div style="display: flex; justify-content: space-around; margin: 15px 0 15px 0;">
-					<input type="email" name="email" placeholder="E-mail" required/>
-					<input id="passwordKey" type={isPreviewed ? "text" : "password"} name="password" placeholder="Password" required/>
-          <button on:click={() => isPreviewed = !isPreviewed}>Toggle Preview</button>
+					<input type="email" name="email" placeholder="อีเมล" required/>
+					<input id="passwordKey" type={isPreviewed ? "text" : "password"} name="password" placeholder="รหัสผ่าน" required/>
 				</div>
-				<div style="display: grid; grid-template-columns: 55% 1% 2% 33%; margin: 5px 0px 10px 0px;">
+				<div style="display: grid; grid-template-columns: 55% 2% 1% auto; margin: 5px 0px 10px 0px;">
 					<div></div>
-					<div><input type="checkbox"></div>
+					<div><input type=checkbox on:click={() => isPreviewed = !isPreviewed}></div>
 					<div></div>
-					<div>แสดงรหัสผ่าน</div>
+					<div style="color: white;">แสดงรหัสผ่าน</div>
 				</div>
 			</div>
 			<input type="submit" id="logoutbtn" value="บังคับออกจากที่จอดรถ" style="display: block; margin: auto;"/>

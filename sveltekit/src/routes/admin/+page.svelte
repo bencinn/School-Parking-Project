@@ -3,6 +3,8 @@
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
+
+	console.log(Parking_lot)
   let isPreviewed = false;
 </script>
 
@@ -60,7 +62,7 @@
 						</td>
 						<td>
 							<span style="color: white">
-								063-541-7296
+								012-345-6789
 							</span>
 						</td>
 					</tr>

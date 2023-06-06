@@ -4,8 +4,7 @@
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
 
-	console.log(Parking_lot)
-  let isPreviewed = false;
+  	let isPreviewed = false;
 </script>
 
 <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">

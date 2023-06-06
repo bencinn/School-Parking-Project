@@ -18,6 +18,13 @@
 	{:else}
 		<form method="POST" id="flgout">
 			<table>
+				<tr>
+					<td></td>
+					<td>ช่องที่</td>
+					<td>ชื่อ</td>
+					<td>สกุล</td>
+					<td>โทร</td>
+				</tr>
 				{#each Parking_lot as parked}
 					<tr>
 						<td>
@@ -25,7 +32,22 @@
 						</td>
 						<td>
 							<span style="color: white;">
-								ช่องจอดรถที่ {parked.parked_where}
+								{parked.parked_where}
+							</span>
+						</td>
+						<td>
+							<span style="color: white">
+								name
+							</span>
+						</td>
+						<td>
+							<span style="color: white">
+								surname
+							</span>
+						</td>
+						<td>
+							<span style="color: white">
+								tel.
 							</span>
 						</td>
 					</tr>

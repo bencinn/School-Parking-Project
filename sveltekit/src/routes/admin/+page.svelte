@@ -3,6 +3,7 @@
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
+  let isPreviewed = false;
 </script>
 
 <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
@@ -68,7 +69,8 @@
 			<div style="display: flex; flex-direction: column">
 				<div style="display: flex; justify-content: space-around; margin: 15px 0 15px 0;">
 					<input type="email" name="email" placeholder="E-mail" required/>
-					<input type="password" name="password" placeholder="Password" required/>
+					<input id="passwordKey" type={isPreviewed ? "text" : "password"} name="password" placeholder="Password" required/>
+          <button on:click={() => isPreviewed = !isPreviewed}>Toggle Preview</button>
 				</div>
 				<div style="display: grid; grid-template-columns: 55% 1% 2% 33%; margin: 5px 0px 10px 0px;">
 					<div></div>

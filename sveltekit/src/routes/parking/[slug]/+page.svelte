@@ -3,6 +3,8 @@
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
+
+	let phone = '';
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
@@ -63,6 +65,7 @@
 						pattern="[0-9]&#123;3&#125;-[0-9]&#123;3&#125;-[0-9]&#123;4&#125;"
 						style="margin-left: 5px;"
 						required
+						bind:value={phone}
 					/>
 					<select required name="position">
 						<option value="นักเรียน" selected>นักเรียน</option>
@@ -77,11 +80,13 @@
 							name="whereis"
 							readonly
 							value={sluggish}
-						/><!--PHP USED TO BE HERE--->
+						/>
 					</h2>
 				</div>
 			</div>
-			<div style="color: white; align-self: flex-start; margin-left: 8px;">หมายเลขโทรศัพท์ (0XX-XXX-XXXX)</div>
+			{#if (phone != "")}
+				<div style="color: white; align-self: flex-start; margin-left: 8px; font-style: italic;">หมายเลขโทรศัพท์ (0XX-XXX-XXXX)</div>
+			{/if}
 		</fieldset>
 		<div style="display: flex; justify-content: center;">
 			<input type="submit" id="btn" value="ลงทะเบียนใช้ที่จอดรถ" />

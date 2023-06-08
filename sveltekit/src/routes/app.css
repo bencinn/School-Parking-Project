@@ -312,7 +312,7 @@ input[type='checkbox']:checked {
 }
 
 #admintable {
-	width: 90%;
+	width: 98%;
 	margin: auto;
 }
 
@@ -322,7 +322,11 @@ input[type='checkbox']:checked {
 	border: 1px solid white;
 	border-collapse: collapse;
 	padding: 5px;
-	font-size: 18px;
+	font-size: 16px;
+}
+
+#admintable tr:nth-child(odd) {
+	background-color: darkslategray;
 }
 
 #admintable tr:nth-child(1) {

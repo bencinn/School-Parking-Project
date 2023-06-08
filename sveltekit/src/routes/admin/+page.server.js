@@ -2,7 +2,7 @@ import { supabase_admin } from '$lib/supabaseClient';
 import * as bcrypt from 'bcrypt/bcrypt.js';
 
 export async function load({ params, cookies }) {
-	const { data } = await supabase_admin.from('Parking_lot').select('parked_where');
+	const { data } = await supabase_admin.from('Parking_lot').select('*');
 	return {
 		Parking_lot: data ?? [],
 		slug: params.slug

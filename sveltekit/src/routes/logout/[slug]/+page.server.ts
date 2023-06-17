@@ -1,34 +1,37 @@
-import { supabase_admin } from '$lib/supabaseClient';
+import { database } from '$lib/supabaseClient';
+import type { Actions, PageData } from './$types';
 
-export async function load({ params }) {
-	const { data } = await supabase_admin.from('Parking_lot').select('parked_where');
+export async function load({ params }: { params: PageData }) {
+	const { data } = await database.from('Parking_lot').select('parked_where');
 	return {
 		Parking_lot: data ?? [],
 		slug: params.slug
 	};
 }
 
-/** @type {import('./$types').Actions} */
-export const actions = {
+export const actions: Actions = {
 	default: async ({ cookies, request }) => {
 		const formdata = await request.formData();
 		console.log(formdata);
-		let { data: parkingLots, error } = await supabase_admin
+		let { data: parkingLots, error } = await database
 			.from('Parking_lot')
 			.select('phone_number')
-			.eq('parked_where', parseInt(formdata.get('whereis')));
+			.eq('parked_where', Number(formdata.get('whereis')));
 		if (error) {
 			console.log(error);
 			return { success: false };
 		} else {
+			if (parkingLots === null) {
+				return { success: false };
+			}
 			const matchingParkingLots = parkingLots.filter(
 				(parkingLot) => parkingLot.phone_number === formdata.get('tel')
 			);
 			if (matchingParkingLots.length > 0) {
-				let { error: deleteError } = await supabase_admin
+				let { error: deleteError } = await database
 					.from('Parking_lot')
 					.delete()
-					.eq('parked_where', parseInt(formdata.get('whereis')));
+					.eq('parked_where', Number(formdata.get('whereis')));
 				console.log(formdata.get('whereis'));
 
 				if (deleteError) {

@@ -37,12 +37,12 @@
 			full5++;
 		} else if (
 			95 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 108
+			parseInt(Parking_lot[i].parked_where) <= 119
 		) {
 			full6++;
 		} else if (
-			109 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 110
+			120 <= parseInt(Parking_lot[i].parked_where) &&
+			parseInt(Parking_lot[i].parked_where) <= 121
 		) {
 			full7++;
 		}
@@ -53,7 +53,7 @@
 		v3 = 27,
 		v4 = 9,
 		v5 = 21,
-		v6 = 14,
+		v6 = 25,
 		v7 = 2;
 
 	v1 -= full1;
@@ -64,7 +64,7 @@
 	v6 -= full6;
 	v7 -= full7;
 
-	let vall = 110 - Parking_lot.length;
+	let vall = 121 - Parking_lot.length;
 </script>
 
 <h2 id="title2" style="font-size: 24px;">แผนผังที่จอดในบริเวณโรงเรียน</h2>
@@ -92,11 +92,11 @@
 			<span />
 			<div>ว่าง <span style="color: var(--tri)">{v5}</span> ที่</div>
 
-			<div>อาคาร 6 (ที่จอดที่ 95-108)</div>
+			<div>อาคาร 6 (ที่จอดที่ 95-119)</div>
 			<span />
 			<div>ว่าง <span style="color: var(--tri)">{v6}</span> ที่</div>
 
-			<div>ที่จอดผู้พิการ (ที่จอดที่ 109-110)</div>
+			<div>ที่จอดผู้พิการ (ที่จอดที่ 120-121)</div>
 			<span />
 			<div>ว่าง <span style="color: var(--tri)">{v7}</span> ที่</div>
 		</div>

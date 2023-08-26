@@ -66,7 +66,7 @@
 						<td>
 							<span style="color: white">
 								{parked.parker_handler}
-							</span>
+						 	</span>
 						</td>
 						<td>
 							<span style="color: white">

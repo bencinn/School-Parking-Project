@@ -68,8 +68,8 @@
 </script>
 
 <h2 id="title2" style="font-size: 24px;">แผนผังที่จอดในบริเวณโรงเรียน</h2>
-<div style="display: flex; gap: 10%; justify-content: center; align-items: center; padding: 10px;">
-	<img src="/map.svg" alt="School Map" style="width: 35%; display: block;" />
+<div id="parkingdisplay">
+	<img src="/map.svg" alt="School Map" style="display: block;" />
 	<div>
 		<div id="parkinfo">
 			<div>อาคาร 1 (ที่จอดที่ 1-13)</div>

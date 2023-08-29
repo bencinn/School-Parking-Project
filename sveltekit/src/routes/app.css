@@ -14,13 +14,6 @@ html {
 	--bggrade: linear-gradient(135deg, var(--pri), var(--tri));
 }
 
-
-/*
-@font-face {
-	font-family: chakrapetch;
-	src: url('./chakrapetch-medium.ttf');
-}*/
-
 * {
 	font-family: 'Chakra Petch';
 	box-sizing: border-box;
@@ -37,7 +30,7 @@ body {
 	background-color: var(--gray);
 	border-radius: 10px;
 	padding: 10px;
-	width: 70%;
+	width: 100%;
 	height: fit-content;
 	margin: 8px auto 8px auto;
 	display: flex;
@@ -58,7 +51,7 @@ body {
 }
 
 #display {
-	width: 70%;
+	width: 100%;
 	background-color: var(--gray);
 	border-radius: 10px;
 	padding: 10px;
@@ -74,11 +67,23 @@ body {
 	margin: 20px;
 }
 
+@media only screen and (min-width: 800px) {
+	#web {
+		width: 70%
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	#web {
+		width: 90%
+	}
+}
+
 hr {
 	height: 10px;
 	border-radius: 10px;
 	background-color: var(--tri);
-	width: 70%;
+	width: 100%;
 	padding: 0px 10px 0px 10px;
 	border: none;
 }
@@ -141,32 +146,135 @@ fieldset#parkingform {
 	align-items: center;
 }
 
-#nameinp {
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
-	margin: 10px;
+
+
+@media only screen and (max-width: 600px) {
+
+	#nameinp input[type='text'],
+	#addinp input[type='text'] {
+		padding: 5px;
+		border-radius: 10px;
+		font-size: 12px;
+		color: var(--gray);
+		font-weight: 600;
+		width: 40%;
+	}
+
+	#nameinp {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		margin: 10px;
+	}
+
+	#addinp {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		width: 100%;
+		align-items: center;
+	}
+
+	#addinp > * {
+		margin: 0;
+	}
+
+	#slotdisplay {
+		border-radius: 10px;
+		border: 2px solid var(--sec);
+		height: 60px !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	#slotdisplay h2 {
+		margin: 0;
+		font-size: 16px;
+	}
+	
+	#slotdisplay input[type='text'] {
+		padding: 5px;
+		border-radius: 10px;
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--sec);
+		padding-left: 15px;
+		width: 30% !important;
+	}
+
+	#nameinp select,
+	#addinp select {
+		font-size: 12px;
+		padding: 5px;
+	}
+
 }
 
-#nameinp input[type='text'],
-#addinp input[type='text'] {
-	padding: 10px;
-	border-radius: 10px;
-	font-size: 16px;
-	color: var(--gray);
-	font-weight: 600;
-	width: 40%;
+@media only screen and (min-width: 600px) {
+
+	#nameinp input[type='text'],
+	#addinp input[type='text'] {
+		padding: 10px;
+		border-radius: 10px;
+		font-size: 16px;
+		color: var(--gray);
+		font-weight: 600;
+		width: 40%;
+	}
+
+	#nameinp {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		margin: 10px;
+	}
+
+	#addinp {
+		display: grid;
+		grid-template-columns: 3fr 2fr;
+		width: 100%;
+		align-items: center;
+	}
+
+	#slotdisplay {
+		border-radius: 10px;
+		border: 2px solid var(--sec);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	#slotdisplay h2 {
+		margin: 5px;
+		font-size: 20px;
+	}
+	
+	#slotdisplay input[type='text'] {
+		padding: 10px;
+		border-radius: 10px;
+		font-size: 20px;
+		font-weight: 600;
+		color: var(--sec);
+		padding-left: 15px;
+		width: 30% !important;
+	}
+
+	#nameinp select,
+	#addinp select {
+		font-size: 16px;
+		padding: 10px;
+	}
+
 }
 
-#addinp input[type='text'] {
+#addinp input[type='text']:not(#slotdisplay input) {
 	width: 55% !important;
 }
 
 #nameinp select,
 #addinp select {
-	padding: 10px;
 	border-radius: 10px;
-	font-size: 16px;
 	color: var(--gray);
 	font-weight: 600;
 	width: 18%;
@@ -200,12 +308,7 @@ input {
 	outline: none;
 }
 
-#addinp {
-	display: grid;
-	grid-template-columns: 3fr 2fr;
-	width: 100%;
-	align-items: center;
-}
+
 
 #addinp > div:nth-child(1) {
 	width: 100%;
@@ -214,28 +317,7 @@ input {
 	padding-right: 8px;
 }
 
-#slotdisplay {
-	border-radius: 10px;
-	border: 2px solid var(--sec);
-	height: 60px !important;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
-#slotdisplay h2 {
-	margin: 0;
-}
-
-#slotdisplay input[type='text'] {
-	padding: 10px;
-	border-radius: 10px;
-	font-size: 20px;
-	font-weight: 600;
-	color: var(--sec);
-	padding-left: 15px;
-	width: 30% !important;
-}
 
 p#info {
 	color: white;
@@ -245,19 +327,7 @@ p#info {
 	line-height: 24px;
 }
 
-#parkinfo {
-	color: white;
-	font-size: 18px;
-	display: grid;
-	width: 115%;
-	align-items: center;
-	grid-template-columns: 68% 5% 27%;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
 
-#parkinfo > div {
-	margin: 5px;
-}
 
 /*Admin Panel*/
 input[type='checkbox'] {
@@ -338,4 +408,52 @@ input[type='checkbox']:checked {
 	font-size: 20px;
 	font-weight: 550;
 	text-align: center;
+}
+
+/*Home page*/
+@media only screen and (min-width: 800px) {
+	#parkingdisplay {
+		display: flex;
+		gap: 10%;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+	}
+	#parkinfo {
+		width: 115%;
+	}
+	#parkingdisplay img {
+		width: 35%; 
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	#parkingdisplay {
+		display: flex;
+		flex-direction: column;
+		gap: 10%;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+	}
+
+	#parkinfo {
+		width: 100%;
+	}
+	#parkingdisplay img {
+		width: 60%; 
+	}
+}
+
+#parkinfo {
+	color: white;
+	font-size: 18px;
+	display: grid;
+	align-items: center;
+	grid-template-columns: 68% 5% 27%;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#parkinfo > div {
+	margin: 5px;
 }

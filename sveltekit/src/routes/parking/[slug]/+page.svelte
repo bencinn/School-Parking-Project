@@ -28,7 +28,7 @@
 			ได้มาใช้ช่องจอดรถนี้ต่อจากท่าน
 		</p>
 		<div id="slotdisplay">
-			<h2 id="title2" style="font-size: 20px;">
+			<h2 id="title2">
 				ช่องจอดรถช่องที่ <input
 					type="text"
 					name="whereis"
@@ -74,7 +74,7 @@
 					</select>
 				</div>
 				<div id="slotdisplay">
-					<h2 id="title2" style="font-size: 20px;">
+					<h2 id="title2">
 						ช่องจอดรถช่องที่ <input
 							type="text"
 							name="whereis"

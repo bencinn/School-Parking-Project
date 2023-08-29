@@ -208,7 +208,11 @@ fieldset#parkingform {
 		font-size: 12px;
 		padding: 5px;
 	}
-
+	#tellogout {
+		font-size: 16px;
+		width: 100% !important;
+		padding: 8px;
+	}
 }
 
 @media only screen and (min-width: 600px) {
@@ -265,7 +269,9 @@ fieldset#parkingform {
 		font-size: 16px;
 		padding: 10px;
 	}
-
+	#tellogout {
+		font-size: 20px;
+	}
 }
 
 #addinp input[type='text']:not(#slotdisplay input) {
@@ -326,6 +332,7 @@ p#info {
 	margin: 0px 10px 10px 10px;
 	line-height: 24px;
 }
+
 
 
 

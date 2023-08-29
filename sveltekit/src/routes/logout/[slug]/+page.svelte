@@ -22,7 +22,8 @@
 						name="tel"
 						placeholder="โทรศัพท์ (0XX-XXX-XXXX)"
 						pattern="[0-9]&#123;3&#125;-[0-9]&#123;3&#125;-[0-9]&#123;4&#125;"
-						style="margin-left: 5px; color: crimson; font-size: 20px;"
+						id="tellogout"
+						style="margin-left: 5px; color: crimson;"
 						required
 					/>
 				</div>

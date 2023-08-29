@@ -1,10 +1,28 @@
-<script>
+<script lang="ts">
 	export let data;
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
 	/** @type {import('./$types').ActionData} */
 	export let form;
+
+	let phone = '';
+
+	function formatPhoneNumber(phonenumber) {
+		if (!phonenumber) return phonenumber;
+		let phoneNumber = phonenumber.replace(/[^\d^\b]/g, '');
+		let numberLength = phonenumber.length;
+		if (numberLength <= 3) return phoneNumber;
+		if (numberLength <= 6) {
+			return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
+		}
+			return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 9)}`;
+	}
+
+	function formatPhone() {
+		let formatinp = formatPhoneNumber(phone);
+		phone = formatinp;
+	}
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
@@ -25,6 +43,8 @@
 						id="tellogout"
 						style="margin-left: 5px; color: crimson;"
 						required
+						bind:value={phone}
+						on:keydown={formatPhone}
 					/>
 				</div>
 				<div id="slotdisplay">

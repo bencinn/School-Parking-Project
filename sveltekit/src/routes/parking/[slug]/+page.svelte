@@ -5,6 +5,22 @@
 	const sluggish = slug;
 
 	let phone = '';
+
+	function formatPhoneNumber(phonenumber) {
+		if (!phonenumber) return phonenumber;
+		let phoneNumber = phonenumber.replace(/[^\d^\b]/g, '');
+		let numberLength = phonenumber.length;
+		if (numberLength <= 3) return phoneNumber;
+		if (numberLength <= 6) {
+			return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3)}`;
+		}
+			return `${phoneNumber.slice(0, 3)}-${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 9)}`;
+	}
+
+	function formatPhone() {
+		let formatinp = formatPhoneNumber(phone);
+		phone = formatinp;
+	}
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
@@ -66,6 +82,7 @@
 						style="margin-left: 5px;"
 						required
 						bind:value={phone}
+						on:keydown={formatPhone}
 					/>
 					<select required name="position">
 						<option value="นักเรียน" selected>นักเรียน</option>

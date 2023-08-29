@@ -272,6 +272,7 @@ fieldset#parkingform {
 	#tellogout {
 		font-size: 20px;
 		padding: 8px;
+		width: 60% !important;
 	}
 }
 

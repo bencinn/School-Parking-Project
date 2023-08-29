@@ -191,6 +191,7 @@ fieldset#parkingform {
 	#slotdisplay h2 {
 		margin: 0;
 		font-size: 16px;
+		display: flex;
 	}
 	
 	#slotdisplay input[type='text'] {
@@ -252,6 +253,7 @@ fieldset#parkingform {
 	#slotdisplay h2 {
 		margin: 5px;
 		font-size: 20px;
+		display: flex;
 	}
 	
 	#slotdisplay input[type='text'] {
@@ -271,7 +273,7 @@ fieldset#parkingform {
 	}
 	#tellogout {
 		font-size: 20px;
-		padding: 8px;
+		padding: 15px;
 		width: 100% !important;
 	}
 }

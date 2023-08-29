@@ -209,9 +209,9 @@ fieldset#parkingform {
 		padding: 5px;
 	}
 	#tellogout {
-		font-size: 16px;
+		font-size: 26px;
 		width: 100% !important;
-		padding: 8px;
+		padding: 12px;
 	}
 }
 
@@ -271,6 +271,7 @@ fieldset#parkingform {
 	}
 	#tellogout {
 		font-size: 20px;
+		padding: 8px;
 	}
 }
 

@@ -274,7 +274,7 @@ fieldset#parkingform {
 	}
 }
 
-#addinp input[type='text']:not(#slotdisplay input) {
+#addinp input[type='text']:not(#slotdisplay input, #tellogout) {
 	width: 55% !important;
 }
 

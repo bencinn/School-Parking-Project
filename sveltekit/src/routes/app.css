@@ -186,6 +186,7 @@ fieldset#parkingform {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 8px;
 	}
 	
 	#slotdisplay h2 {
@@ -193,6 +194,7 @@ fieldset#parkingform {
 		font-size: 16px;
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		align-items: center;
 		gap: 3px;
 		flex-wrap: wrap;
@@ -252,12 +254,15 @@ fieldset#parkingform {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 8px;
 	}
 	
 	#slotdisplay h2 {
 		margin: 5px;
 		font-size: 20px;
 		display: flex;
+		justify-content: center;
+		align-items: center;
 		gap: 5px;
 		flex-wrap: wrap;
 	}

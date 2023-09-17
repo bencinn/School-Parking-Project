@@ -49,7 +49,7 @@
 					type="text"
 					name="whereis"
 					readonly
-					style="color: var(--tri); padding-left: 15px; width: 30% !important;"
+					style="color: var(--sec); padding-left: 15px; width: 30% !important;"
 					value={sluggish}
 				/><!--PHP USED TO BE HERE--->
 			</h2>

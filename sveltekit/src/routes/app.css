@@ -7,11 +7,11 @@ html {
 }
 
 :root {
-	--pri: #165e68;
-	--sec: #2397a7;
-	--tri: #21c1d6;
-	--gray: #222c2b;
-	--bggrade: linear-gradient(135deg, var(--pri), var(--tri));
+	--pri: #053B50;
+	--sec: #176B87;
+	--tri: #64CCC5;
+	--gray: #283030;
+	--bggrade: #a0d5e1;
 }
 
 * {
@@ -82,7 +82,7 @@ body {
 hr {
 	height: 10px;
 	border-radius: 10px;
-	background-color: var(--tri);
+	background-color: var(--sec);
 	width: 100%;
 	padding: 0px 10px 0px 10px;
 	border: none;

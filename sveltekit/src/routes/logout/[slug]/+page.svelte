@@ -53,7 +53,7 @@
 							type="text"
 							name="whereis"
 							readonly
-							style="color: var(--tri)"
+							style="color: var(--sec)"
 							value={sluggish}
 						/>
 					</h2>
@@ -76,14 +76,13 @@
 	</p>
 {:else}
 	<h2 style="color: crimson !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
-		ไม่สามารถออกจากระบบได้
+		ช่องจอดรถช่องนี้ยังไม่มีผู้จอด
 	</h2>
 	<fieldset>
-		<legend>ไม่สามารถออกจากช่องจอดรถช่องนี้ได้</legend>
+		<legend>ช่องจอดรถช่องนี้ยังไม่มีผู้จอด</legend>
 		<p id="info">
-			ช่องจอดรถช่องนี้ยังไม่มีผู้จอด ท่านจึงไม่สามารถทำการออกจากระบบได้
-			หากท่านต้องการจอดรถของท่านในช่องจอดรถนี้ กรุณากดปุ่ม "เข้าจอดช่องจอดรถช่องนี้"
-			เพื่อดำเนินการเข้าสู่ระบบ
+			ช่องจอดรถช่องนี้ยังไม่มีผู้จอด หากท่านต้องการจอดรถของท่านในช่องจอดรถนี้ 
+			กรุณากดปุ่ม "เข้าจอดช่องจอดรถช่องนี้" เพื่อดำเนินการเข้าสู่ระบบ
 		</p>
 		<div id="slotdisplay">
 			<h2 id="title2" style="font-size: 22px;">
@@ -91,7 +90,7 @@
 					type="text"
 					name="whereis"
 					readonly
-					style="color: var(--tri)"
+					style="color: var(--sec)"
 					value={sluggish}
 				/>
 			</h2>

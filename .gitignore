@@ -7,4 +7,3 @@ sveltekit/.env.*
 sveltekit/!.env.example
 sveltekit/vite.config.js.timestamp-*
 sveltekit/vite.config.ts.timestamp-*
-sveltekit/token.ts

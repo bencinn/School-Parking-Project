@@ -1,5 +1,8 @@
 import { database } from '$lib/supabaseClient';
 import type { Actions, PageData } from './$types';
+import { Client } from '@axiomhq/axiom-node';
+import { axiomtoken } from '../../../../token'
+import { axiomorgid } from '../../../../token'
 
 export async function load({ params }: { params: PageData }) {
 	const { data } = await database.from('Parking_lot').select('parked_where');
@@ -12,6 +15,23 @@ export async function load({ params }: { params: PageData }) {
 export const actions: Actions = {
 	default: async ({ cookies, request }) => {
 		const formdata = await request.formData();
+		async function AxiomIn() {
+			const client = new Client({
+				token: axiomtoken,
+				orgId: axiomorgid,
+			});
+
+			await client.ingestEvents('school-parking-project', [{
+				parknumber: Number(formdata.get('whereis')),
+				parker_name: String(formdata.get('name')),
+				parker_surname: String(formdata.get('surname')),
+				parker_handler: String(formdata.get('handler')),
+				position: String(formdata.get('position')),
+				phone_number: String(formdata.get('phone')),
+				status: 'park_out'
+			}]);
+		}
+		AxiomIn();
 		console.log(formdata);
 		let { data: parkingLots, error } = await database
 			.from('Parking_lot')

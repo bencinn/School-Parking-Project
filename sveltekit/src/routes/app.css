@@ -191,7 +191,7 @@ fieldset#parkingform {
 	
 	#slotdisplay h2 {
 		margin: 0;
-		font-size: 16px;
+		font-size: 14px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -203,7 +203,7 @@ fieldset#parkingform {
 	#slotdisplay input[type='text'] {
 		padding: 5px;
 		border-radius: 10px;
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 600;
 		color: var(--sec);
 		padding-left: 15px;
@@ -252,6 +252,7 @@ fieldset#parkingform {
 		border-radius: 10px;
 		border: 2px solid var(--sec);
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		padding: 8px;
@@ -439,7 +440,7 @@ input[type='checkbox']:checked {
 		gap: 10%;
 		justify-content: center;
 		align-items: center;
-		padding: 10px;
+		padding: 0px 10px 10px 10px;
 	}
 	#parkinfo {
 		width: 115%;
@@ -456,7 +457,7 @@ input[type='checkbox']:checked {
 		gap: 10%;
 		justify-content: center;
 		align-items: center;
-		padding: 10px;
+		padding: 0px 10px 10px 10px;
 	}
 
 	#parkinfo {
@@ -478,4 +479,23 @@ input[type='checkbox']:checked {
 
 #parkinfo > div {
 	margin: 5px;
+}
+
+#announce {
+	background-color: crimson;
+	color: white;
+	padding: 8px;
+	border-radius: 10px;
+}
+
+#announce h3 {
+	display: flex;
+	margin: 0;
+	align-items: center;
+	gap: 5px;
+}
+
+#announce p {
+	margin: 2px 0 0 0;
+	font-size: 15px;
 }

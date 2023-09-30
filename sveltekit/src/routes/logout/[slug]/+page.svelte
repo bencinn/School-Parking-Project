@@ -23,6 +23,28 @@
 		let formatinp = formatPhoneNumber(phone);
 		phone = formatinp;
 	}
+
+	function ParkArea(slot) {
+		if (slot >= 1 && slot <= 13) {
+			return "อาคาร 1";
+		} else if (slot >= 14 && slot <= 37) {
+			return "อาคาร 3";
+		} else if (slot >= 38 && slot <= 64) {
+			return "อาคาร 5";
+		} else if (slot >= 65 && slot <= 73) {
+			return "อาคาร 4";
+		} else if (slot >= 74 && slot <= 94) {
+			return "อาคารการงาน/ลิกอ";
+		} else if (slot >= 95 && slot <= 119) {
+			return "อาคาร 6";
+		} else if (slot == 120) {
+			return "อาคาร 1";
+		} else if (slot == 121) {
+			return "อาคาร 3";
+		} else {
+			return "-";
+		}
+	}
 </script>
 
 {#if Parking_lot.some((item) => item.parked_where == sluggish)}
@@ -56,6 +78,9 @@
 							style="color: var(--sec)"
 							value={sluggish}
 						/>
+					</h2>
+					<h2 style="color: white; margin: 0;">
+						บริเวณ: <span style="color: var(--tri);">{ParkArea(sluggish)}</span>
 					</h2>
 				</div>
 			</div>
@@ -93,6 +118,9 @@
 					style="color: var(--sec)"
 					value={sluggish}
 				/>
+			</h2>
+			<h2 style="color: white; margin: 0;">
+				บริเวณ: <span style="color: var(--tri);">{ParkArea(sluggish)}</span>
 			</h2>
 		</div>
 	</fieldset>

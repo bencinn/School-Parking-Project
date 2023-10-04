@@ -2,8 +2,8 @@ import { database } from '$lib/supabaseClient';
 import * as bcrypt from 'bcrypt';
 import type { PageData, Actions } from '../$types';
 import { Client } from '@axiomhq/axiom-node';
-import { axiomtoken } from '../../../token'
-import { axiomorgid } from '../../../token'
+import { axiomtoken } from '../../../../token'
+import { axiomorgid } from '../../../../token'
 
 export async function load({ params }: { params: PageData }) {
 	const { data } = await database.from('Parking_lot').select('*');

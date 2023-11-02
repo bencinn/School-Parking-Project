@@ -1,7 +1,6 @@
 <script>
 	export let data;
-	let { Parking_lot, slug } = data;
-	$: ({ Parking_lot, slug } = data);
+	let { Parking_lot, slug, announcement } = data;
 	const sluggish = slug;
 
 	let full1 = 0,
@@ -67,15 +66,18 @@
 	let vall = 121 - Parking_lot.length;
 </script>
 
+  {#if announcement !== null}
 <div id="announce">
+
 	<h3>
 		<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" style="fill: white;">
 			<path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
 		</svg>
 		ขออภัยในความไม่สะดวก
 	</h3>
-	<p>ในขณะนี้หน้าอาคาร 6 ได้มีทำถนนจึงขอปิดที่จอดหน้าอาคาร 11 ที่จนถึงวันที่ 31 ตุลาคม 2566</p>
+    <p>{announcement.announcement} (Affected slots: {announcement.affected.join(",")})</p>
 </div>
+{/if}
 <h2 id="title2" style="font-size: 24px; margin: 10px 0px 10px 0px;">แผนผังที่จอดในบริเวณโรงเรียน</h2>
 <div id="parkingdisplay">
 	<img src="/map.svg" alt="School Map" style="display: block;" />

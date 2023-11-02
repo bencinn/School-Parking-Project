@@ -21,7 +21,7 @@
 	if (Parking_lot.length == 0) {
 		for (let j = 0; j < zones.length; j++) {
 			vacant[j] = zones[j].end - zones[j].start + 1;
-			console.log(`Zone ${j + 1} -> ${zones[j].end - zones[j].start + 1}`);
+			console.log(`${zones[j].name} -> ${zones[j].end - zones[j].start + 1}`);
 		}
 	}
 

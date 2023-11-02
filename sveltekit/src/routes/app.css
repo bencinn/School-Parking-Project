@@ -474,7 +474,6 @@ input[type='checkbox']:checked {
 	display: grid;
 	align-items: center;
 	grid-template-columns: 68% 5% 27%;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 #parkinfo > div {
@@ -499,4 +498,17 @@ input[type='checkbox']:checked {
 #announce p {
 	margin: 2px 0 0 0;
 	font-size: 15px;
+}
+
+#zoneslot {
+	background-color: var(--sec);
+	color: white;
+	border-radius: 8px;
+	padding: 3px;
+	display: flex;
+	gap: 3px;
+	justify-content: center;
+	align-items: center;
+	font-size: .9rem;
+	font-weight: 550;
 }

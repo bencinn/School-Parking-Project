@@ -1,69 +1,37 @@
 <script>
 	export let data;
-	let { Parking_lot, slug, announcement } = data;
+	let { Parking_lot, slug, announcement, zones } = data;
 	const sluggish = slug;
 
-	let full1 = 0,
-		full2 = 0,
-		full3 = 0,
-		full4 = 0,
-		full5 = 0,
-		full6 = 0,
-		full7 = 0;
+	let slots = zones[zones.length - 1].end;
+	let full = [], vacant = [];
+	for (let i = 0; i < zones.length; i++) {
+		full[i] = 0;
+		vacant[i] = 0;
+	}
+	console.log(slots);
 
 	for (let i = 0; i < Parking_lot.length; i++) {
-		if (1 <= parseInt(Parking_lot[i].parked_where) && parseInt(Parking_lot[i].parked_where) <= 13) {
-			full1++;
-		} else if (
-			14 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 37
-		) {
-			full2++;
-		} else if (
-			38 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 64
-		) {
-			full3++;
-		} else if (
-			65 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 73
-		) {
-			full4++;
-		} else if (
-			74 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 94
-		) {
-			full5++;
-		} else if (
-			95 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 119
-		) {
-			full6++;
-		} else if (
-			120 <= parseInt(Parking_lot[i].parked_where) &&
-			parseInt(Parking_lot[i].parked_where) <= 121
-		) {
-			full7++;
+		for (let j = 0; j < zones.length; j++) {
+			if (zones[j].start <= Parking_lot[i].parked_where && Parking_lot[i].parked_where <= zones[j].end) full[j]++;
+			vacant[j] = zones[j].end - zones[j].start + 1 - full[j];
 		}
 	}
 
-	let v1 = 13,
-		v2 = 24,
-		v3 = 27,
-		v4 = 9,
-		v5 = 21,
-		v6 = 25,
-		v7 = 2;
+	if (Parking_lot.length == 0) {
+		for (let j = 0; j < zones.length; j++) {
+			vacant[j] = zones[j].end - zones[j].start + 1;
+			console.log(`Zone ${j + 1} -> ${zones[j].end - zones[j].start + 1}`);
+		}
+	}
 
-	v1 -= full1;
-	v2 -= full2;
-	v3 -= full3;
-	v4 -= full4;
-	v5 -= full5;
-	v6 -= full6;
-	v7 -= full7;
+	let vacantAll = slots - Parking_lot.length;
 
-	let vall = 121 - Parking_lot.length;
+	let iter = -1;
+	let count = () => {
+		iter++;
+		return iter;
+	}
 </script>
 
   {#if announcement !== null}
@@ -83,39 +51,25 @@
 	<img src="/map.svg" alt="School Map" style="display: block;" />
 	<div>
 		<div id="parkinfo">
-			<div>อาคาร 1 (ที่จอดที่ 1-13)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v1}</span> ที่</div>
-
-			<div>อาคาร 3 (ที่จอดที่ 14-37)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v2}</span> ที่</div>
-
-			<div>อาคาร 5 (ที่จอดที่ 38-64)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v3}</span> ที่</div>
-
-			<div>อาคาร 4 (ที่จอดที่ 65-73)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v4}</span> ที่</div>
-
-			<div>อาคารการงาน/ลิกอ (ที่จอดที่ 74-94)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v5}</span> ที่</div>
-
-			<div>อาคาร 6 (ที่จอดที่ 95-119)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v6}</span> ที่</div>
-
-			<div>ที่จอดผู้พิการ (ที่จอดที่ 120-121)</div>
-			<span />
-			<div>ว่าง <span style="color: var(--tri)">{v7}</span> ที่</div>
+			{#each zones as zone}
+				<div style="display: flex; gap:5px">
+					{zone.name} 
+					<div id="zoneslot">
+						<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" style="fill: white">
+							<path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM192 256h48c17.7 0 32-14.3 32-32s-14.3-32-32-32H192v64zm48 64H192v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V288 168c0-22.1 17.9-40 40-40h72c53 0 96 43 96 96s-43 96-96 96z"/>
+						</svg>
+						{zone.start}-{zone.end}
+					</div>
+				</div>
+				<span />
+				<div>ว่าง <span style="color: var(--tri)">{vacant[count()]}</span> ที่</div>
+			{/each}
 		</div>
 		<hr style="height: 3px; width: 110%;" />
 		<div id="parkinfo" style="grid-template-rows: 1fr; grid-template-columns: 64.5% 12% 23.5%;">
 			<div>ว่างทั้งหมด</div>
 			<span />
-			<div><span style="color: var(--tri)">{vall}</span> ที่</div>
+			<div><span style="color: var(--tri)">{vacantAll}</span> ที่</div>
 		</div>
 	</div>
 </div>

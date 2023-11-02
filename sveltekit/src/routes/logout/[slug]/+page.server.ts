@@ -3,12 +3,14 @@ import type { Actions, PageData } from './$types';
 import { Client } from '@axiomhq/axiom-node';
 import { axiomtoken } from '../../../../token'
 import { axiomorgid } from '../../../../token'
+import { ParkingZone } from '$lib/slotconfig';
 
 export async function load({ params }: { params: PageData }) {
 	const { data } = await database.from('Parking_lot').select('parked_where');
 	return {
 		Parking_lot: data ?? [],
-		slug: params.slug
+		slug: params.slug,
+		zones: ParkingZone,
 	};
 }
 

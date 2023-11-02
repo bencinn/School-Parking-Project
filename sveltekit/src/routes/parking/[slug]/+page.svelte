@@ -1,7 +1,7 @@
 <script>
 	export let data;
-	let { Parking_lot, slug } = data;
-	$: ({ Parking_lot, slug } = data);
+	let { Parking_lot, slug, zones } = data;
+	$: ({ Parking_lot, slug, zones } = data);
 	const sluggish = slug;
 
 	let phone = '';
@@ -23,25 +23,12 @@
 	}
 
 	function ParkArea(slot) {
-		if (slot >= 1 && slot <= 13) {
-			return "อาคาร 1";
-		} else if (slot >= 14 && slot <= 37) {
-			return "อาคาร 3";
-		} else if (slot >= 38 && slot <= 64) {
-			return "อาคาร 5";
-		} else if (slot >= 65 && slot <= 73) {
-			return "อาคาร 4";
-		} else if (slot >= 74 && slot <= 94) {
-			return "อาคารการงาน/ลิกอ";
-		} else if (slot >= 95 && slot <= 119) {
-			return "อาคาร 6";
-		} else if (slot == 120) {
-			return "อาคาร 1";
-		} else if (slot == 121) {
-			return "อาคาร 3";
-		} else {
-			return "-";
+		for (let i = 0; i < zones.length; i++) {
+			if (slot >= zones[i].start && slot <= zones[i].end) {
+				return zones[i].name;
+			}
 		}
+		return "Error!";
 	}
 </script>
 

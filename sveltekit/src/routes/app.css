@@ -196,7 +196,7 @@ fieldset#parkingform {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		gap: 3px;
+		gap: 5px;
 		flex-wrap: wrap;
 	}
 	
@@ -485,7 +485,6 @@ input[type='checkbox']:checked {
 	color: white;
 	padding: 8px;
 	border-radius: 10px;
-	/*display:none;*/
 }
 
 #announce h3 {

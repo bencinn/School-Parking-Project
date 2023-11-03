@@ -57,8 +57,11 @@
 					/>
 				</div>
 				<div id="slotdisplay">
-					<h2 id="title2" style="font-size: 22px;">
-						ช่องจอดรถช่องที่ <input
+					<h2 id="title2" style="margin: 0; gap: 10px; font-size: 22px;">
+						<svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512" style="fill: var(--tri)">
+							<path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM192 256h48c17.7 0 32-14.3 32-32s-14.3-32-32-32H192v64zm48 64H192v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V288 168c0-22.1 17.9-40 40-40h72c53 0 96 43 96 96s-43 96-96 96z"/>
+						</svg>
+						<input
 							type="text"
 							name="whereis"
 							readonly
@@ -97,8 +100,11 @@
 			กรุณากดปุ่ม "เข้าจอดช่องจอดรถช่องนี้" เพื่อดำเนินการเข้าสู่ระบบ
 		</p>
 		<div id="slotdisplay">
-			<h2 id="title2" style="font-size: 22px;">
-				ช่องจอดรถช่องที่ <input
+			<h2 id="title2" style="margin: 0; gap: 10px;">
+				<svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512" style="fill: var(--tri)">
+					<path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM192 256h48c17.7 0 32-14.3 32-32s-14.3-32-32-32H192v64zm48 64H192v32c0 17.7-14.3 32-32 32s-32-14.3-32-32V288 168c0-22.1 17.9-40 40-40h72c53 0 96 43 96 96s-43 96-96 96z"/>
+				</svg>
+				<input
 					type="text"
 					name="whereis"
 					readonly

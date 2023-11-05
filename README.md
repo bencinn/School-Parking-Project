@@ -26,7 +26,7 @@ After the driver is ready to leave, they'll have to scan the same QR Code again.
 
 
 ## Notes
-This is just a test version of the project with it being only **65-70% Done**, and there's a ton of potential problems out there. Also, this project could be implemented into many other different places as well, such as Office Buildings, Malls, etc. The reason I chose to use it at my school is because this project is dedicated to my computer class. :) Anyway, this just a test project, so feel free to help, or report potential problems to me.
+This is just a test version of the project with it being only **85-90% Done**, and there's a ton of potential problems out there. Also, this project could be implemented into many other different places as well, such as Office Buildings, Malls, etc. The reason I chose to use it at my school is because this project is dedicated to my computer class. :) Anyway, this just a test project, so feel free to help, or report potential problems to me.
 
 ___
 

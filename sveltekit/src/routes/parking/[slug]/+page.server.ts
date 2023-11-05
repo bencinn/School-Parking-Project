@@ -1,8 +1,8 @@
 import { database } from '$lib/supabaseClient';
 import type { PageData, Actions } from './$types';
 import { Client } from '@axiomhq/axiom-node';
-import { axiomtoken } from '../../../../token'
-import { axiomorgid } from '../../../../token'
+import { axiomtoken } from '$lib/token'
+import { axiomorgid } from '$lib/token'
 import { ParkingZone } from '$lib/slotconfig';
 
 export async function load({ params }: { params: PageData }) {

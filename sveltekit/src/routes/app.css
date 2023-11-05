@@ -83,7 +83,6 @@ hr {
 	height: 10px;
 	border-radius: 10px;
 	background-color: var(--sec);
-	width: 100%;
 	padding: 0px 10px 0px 10px;
 	border: none;
 }
@@ -448,6 +447,14 @@ input[type='checkbox']:checked {
 	#parkingdisplay img {
 		width: 35%; 
 	}
+
+	#parkingdisplay > div {
+		width: 45%;
+	}
+
+	#parkingdisplay > div hr {
+		width: 110%;
+	}
 }
 
 @media only screen and (max-width: 800px) {
@@ -462,9 +469,14 @@ input[type='checkbox']:checked {
 
 	#parkinfo {
 		width: 100%;
+		font-size: 14px;
 	}
 	#parkingdisplay img {
 		width: 60%; 
+	}
+
+	#parkingdisplay > div hr {
+		width: 100%;
 	}
 }
 
@@ -473,7 +485,7 @@ input[type='checkbox']:checked {
 	font-size: 18px;
 	display: grid;
 	align-items: center;
-	grid-template-columns: 68% 5% 27%;
+	grid-template-columns: 73% 27%;
 }
 
 #parkinfo > div {
@@ -510,4 +522,16 @@ input[type='checkbox']:checked {
 	align-items: center;
 	font-size: .9rem;
 	font-weight: 550;
+}
+
+#affslots {
+	background-color: darkred; 
+	padding: 3px 4px 3px 4px; 
+	font-size: .75em;
+	font-weight: bold; 
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 20px;
 }

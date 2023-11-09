@@ -534,3 +534,20 @@ input[type='checkbox']:checked {
 	align-items: center;
 	min-width: 20px;
 }
+
+#zonepick {
+	display: flex;
+	align-items: center;
+}
+
+#parked {
+	background-color: var(--pri);
+	color: white;
+	border-radius: 8px;
+	border: none;
+	transition: 250ms;
+	padding: 6px;
+	margin: 8px 0px 0px 0px;
+	font-size: 18px;
+	text-decoration: none;
+}

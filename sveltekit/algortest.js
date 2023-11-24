@@ -1,11 +1,11 @@
-const input = "1-3, 5-7, 10-11, 8, 9, 11 aaaaa";
+const input = "19-23, e87-88";
 
-let inparr = input.replaceAll(/^(?!.*0-9\-\,)/gi, "").split(",");
+let inparr = input.replaceAll(/[^0-9,-]+/g, "").split(",");
 let finisharr = []; 
 
 for(let i = 0; i < inparr.length; i++) {
     if (inparr[i].split("-").length == 2) {
-        for (let j = inparr[i].split("-")[0]; j <= inparr[i].split("-")[1]; j++) {
+        for (let j = Number(inparr[i].split("-")[0]); j <= Number(inparr[i].split("-")[1]); j++) {
             finisharr.push(Number(j));
         }
     } else {
@@ -14,6 +14,6 @@ for(let i = 0; i < inparr.length; i++) {
 }
 
 finisharr = [...new Set(finisharr)].sort(function(a, b) {return a - b;});
-//remove NaN
+finisharr = finisharr.filter(arg => isNaN(arg) === false);
 
-console.log(finisharr)
+console.log(finisharr);

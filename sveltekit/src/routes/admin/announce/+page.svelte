@@ -5,6 +5,7 @@
 	const sluggish = slug;
 
   	let isPreviewed = false;
+	console.log(Announce);
 
 	function convertTZ(date) {
 		let inp = new Date((typeof date === "string" ? new Date(date) : date).toISOString().toLocaleString("th-TH", {timeZone: 'Asia/Jakarta'}))
@@ -65,8 +66,8 @@
 			<table id="admintable">
 				<tr style="border-bottom: 3px solid white;">
 					<td style="width: 5%; font-size: 14px">ยกเลิก<br>ประกาศ</td>
-					<td style="width: 15%;">เริ่มประกาศ</td>
 					<td style="width: 65%;">ข้อความ</td>
+					<td style="width: 15%;">เริ่มประกาศ</td>
 					<td style="width: 15%">หมดประกาศ</td>
 				</tr>	
 				{#each Announce as announce}
@@ -77,19 +78,19 @@
 							</div>
 						</td>
 						<td>
-							<div style="color: white; text-align: center;">
-								{announce.start_time}
-							</div>
-						</td>
-						<td>
 							<span style="color: white">
-								{announce.message}
+								{announce.announcement}
 						 	</span>
 						</td>
 						<td>
-							<span style="color: white">
-								{announce.end_time}
-							</span>
+							<div style="color: white; text-align: center;">
+								{announce.start_date}
+							</div>
+						</td>
+						<td>
+							<div style="color: white; text-align: center;">
+								{announce.end_date}
+							</div>
 						</td>
 					</tr>
 				{/each}

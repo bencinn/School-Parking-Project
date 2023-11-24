@@ -3,7 +3,7 @@ import * as bcrypt from 'bcrypt';
 import type { PageData, Actions } from '../$types';
 
 export async function load({ params }: { params: PageData }) {
-	const { data } = await database.from('announce').select('*');
+	const { data, error } = await database.from('announcement').select('*');
 	return {
 		Announce: data ?? [],
 		slug: params.slug

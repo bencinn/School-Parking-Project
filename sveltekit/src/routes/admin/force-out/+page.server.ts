@@ -1,9 +1,7 @@
 import { database } from '$lib/supabaseClient';
 import * as bcrypt from 'bcrypt';
 import type { PageData, Actions } from '../$types';
-import { Client } from '@axiomhq/axiom-node';
-import { axiomtoken } from '$lib/token'
-import { axiomorgid } from '$lib/token'
+import { AxiomIn } from '$lib/token'
 
 export async function load({ params }: { params: PageData }) {
 	const { data } = await database.from('Parking_lot').select('*');
@@ -26,23 +24,8 @@ export const actions: Actions = {
 		bcrypt.compare(String(password), String(data[0].passwordHash), async function (err, result) {
 			if (result == true) {
 				for (let i = 0; i < signoutList.length; i++) {
-					async function AxiomIn() {
-						const client = new Client({
-							token: axiomtoken,
-							orgId: axiomorgid,
-						});
-			
-						await client.ingestEvents('school-parking-project', [{
-							parknumber: Number(signoutList[i]),
-							parker_name: String(formdata.get('name')),
-							parker_surname: String(formdata.get('surname')),
-							parker_handler: String(formdata.get('handler')),
-							position: String(formdata.get('position')),
-							phone_number: String(formdata.get('phone')),
-							status: 'park_out'
-						}]);
-					}
-					AxiomIn();
+					let outslot = Number(signoutList[i]);
+					let outinfo = await database.from('Parking_lot').select('*').eq('parked_where', Number(signoutList[i]));
 					const { data, error } = await database
 						.from('Parking_lot')
 						.delete()
@@ -51,6 +34,15 @@ export const actions: Actions = {
 					} else {
 						return { success: false };
 					}
+					AxiomIn({whereis: outslot,
+						parker_name: String(outinfo.data[0].parker_name),
+						parker_surname: String(outinfo.data[0].parker_surname),
+						parker_handler: String(outinfo.data[0].parker_handler),
+						position: String(outinfo.data[0].position),
+						phone_number: String(outinfo.data[0].phone_number),
+						type: "force-out",
+						error: error !== null
+    				});
 				}
 			} else {
 				return { success: false };

@@ -17,30 +17,27 @@ export const actions: Actions = {
 	default: async ({ cookies, request }) => {
 		const formdata = await request.formData();
 
-		console.log(formdata);
 		let { data: parkingLots, error } = await database
 			.from('Parking_lot')
 			.select('phone_number')
 			.eq('parked_where', Number(formdata.get('whereis')));
 		if (error) {
 			console.log(error);
-
-
-    AxiomIn({whereis: Number(formdata.get('whereis')),
-        phone_number: String(formdata.get('tel')),
-      type: "parked-out",
-			error: true
-    });				return { success: false };
+			AxiomIn({whereis: Number(formdata.get('whereis')),
+				phone_number: String(formdata.get('tel')),
+				type: "parked-out",
+				error: true
+			});				
+			return { success: false };
 		} else {
 			if (parkingLots === null) {
-
-
-    AxiomIn({whereis: Number(formdata.get('whereis')),
-       
-        phone_number: String(formdata.get('tel')),
-      type: "parked-out",
-			error: true
-    });					return { success: false };
+				AxiomIn({
+					whereis: Number(formdata.get('whereis')),
+					phone_number: String(formdata.get('tel')),
+					type: "parked-out",
+					error: true
+				});					
+				return { success: false };
 			}
 			const matchingParkingLots = parkingLots.filter(
 				(parkingLot) => parkingLot.phone_number === formdata.get('tel')

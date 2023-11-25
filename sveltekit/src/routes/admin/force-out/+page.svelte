@@ -1,31 +1,12 @@
 <script>
+	import { FormatTime } from '$lib/formattime';
+
 	export let data;
 	let { Parking_lot, slug } = data;
 	$: ({ Parking_lot, slug } = data);
 	const sluggish = slug;
 
   	let isPreviewed = false;
-
-	function convertTZ(date) {
-		let inp = new Date((typeof date === "string" ? new Date(date) : date).toISOString().toLocaleString("th-TH", {timeZone: 'Asia/Jakarta'}))
-		let tzdate = new Date(inp);
-
-		let day = tzdate.getDate();
-		let month = tzdate.getMonth() + 1;
-		let year = tzdate.getFullYear();
-		let hours = tzdate.getHours();
-		let minutes = tzdate.getMinutes();
-		let seconds = tzdate.getSeconds();
-
-		let formattedDay = String(day).padStart(2, "0");
-		let formattedMonth = String(month).padStart(2, "0");
-		let formattedHours = String(hours).padStart(2, "0");
-		let formattedMinutes = String(minutes).padStart(2, "0");
-		let formattedSeconds = String(seconds).padStart(2, "0");
-
-		let formattedDate = `${formattedDay}/${formattedMonth}/${year} ${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    	return formattedDate;   
-	}
 </script>
 
 <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
@@ -44,11 +25,11 @@
 				<tr style="border-bottom: 3px solid white;">
 					<td style="width: 5%;">ออก<br>ระบบ</td>
 					<td style="width: 3%;">ช่องที่</td>
-					<td style="width: 8%;">คำนำ<br>หน้า</td>
 					<td style="width: 11%">ตำแหน่ง</td>
+					<td style="width: 8%;">คำนำ<br>หน้า</td>
 					<td>ชื่อ</td>
 					<td>สกุล</td>
-					<td style="width: 16%;">โทรศัพท์</td>
+					<td style="width: 17%;">โทรศัพท์</td>
 					<td style="width: 22%;">เวลาเข้าจอด</td>
 				</tr>	
 				{#each Parking_lot as parked}
@@ -65,13 +46,13 @@
 						</td>
 						<td>
 							<span style="color: white">
-								{parked.parker_handler}
-						 	</span>
+								{parked.position}
+							</span>
 						</td>
 						<td>
 							<span style="color: white">
-								{parked.position}
-							</span>
+								{parked.parker_handler}
+						 	</span>
 						</td>
 						<td>
 							<span style="color: white">
@@ -90,7 +71,7 @@
 						</td>
 						<td>
 							<span style="color: white">
-								{convertTZ(parked.created_at)}
+								{FormatTime(parked.created_at)}
 							</span>
 						</td>
 					</tr>

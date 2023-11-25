@@ -1,4 +1,7 @@
 <script>
+	import { FormatTime } from '$lib/formattime';
+	import { ParkingZone } from '$lib/slotconfig';
+
 	export let data;
 	let { Announce, slug } = data;
 	$: ({ Announce, slug } = data);
@@ -6,27 +9,6 @@
 
   	let isPreviewed = false;
 	console.log(Announce);
-
-	function convertTZ(date) {
-		let inp = new Date((typeof date === "string" ? new Date(date) : date).toISOString().toLocaleString("th-TH", {timeZone: 'Asia/Jakarta'}))
-		let tzdate = new Date(inp);
-
-		let day = tzdate.getDate();
-		let month = tzdate.getMonth() + 1;
-		let year = tzdate.getFullYear();
-		let hours = tzdate.getHours();
-		let minutes = tzdate.getMinutes();
-		let seconds = tzdate.getSeconds();
-
-		let formattedDay = String(day).padStart(2, "0");
-		let formattedMonth = String(month).padStart(2, "0");
-		let formattedHours = String(hours).padStart(2, "0");
-		let formattedMinutes = String(minutes).padStart(2, "0");
-		let formattedSeconds = String(seconds).padStart(2, "0");
-
-		let formattedDate = `${formattedDay}/${formattedMonth}/${year} ${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    	return formattedDate;   
-	}
 </script>
 
 <h2 style="color: white !important; text-align: center; font-size: 24px; margin-bottom: 10px;">
@@ -84,12 +66,12 @@
 						</td>
 						<td>
 							<div style="color: white; text-align: center;">
-								{announce.start_date}
+								{FormatTime(announce.start_date).slice(0, 10)}
 							</div>
 						</td>
 						<td>
 							<div style="color: white; text-align: center;">
-								{announce.end_date}
+								{FormatTime(announce.end_date).slice(0, 10)}
 							</div>
 						</td>
 					</tr>
@@ -104,6 +86,18 @@
 						<div style="color: white">วันที่หมดประกาศ</div>
 						<input type="datetime-local" style="border-radius: 5px; padding: 5px;">
 					</div>
+				</div>
+				<div>
+					<div style="color: white">ช่องจอดรถที่ปิด</div>
+					<div style="display: flex; justify-content: space-between">
+						{#each ParkingZone as zone}
+							<div style="display: flex; flex-direction: column; align-items: center;">
+								<span style="color: white">{zone.name}</span>
+								<input type=checkbox>
+							</div>
+						{/each}
+					</div>
+					<textarea placeholder="หรือเจาะจงช่องจอดรถ" style="resize: none; border-radius: 5px; padding: 5px; font-size: 16px; width: 100%; margin-top: 10px"></textarea>
 				</div>
 				<div style="display: flex; justify-content: space-around; margin: 15px 0 15px 0;">
 					<input type="email" name="email" placeholder="อีเมล" required/>

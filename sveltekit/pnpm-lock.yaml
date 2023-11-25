@@ -9,7 +9,7 @@ dependencies:
     specifier: ^0.12.0
     version: 0.12.0
   '@axiomhq/js':
-    specifier: ^1.0.0-rc.1
+    specifier: 1.0.0-rc.1
     version: 1.0.0-rc.1
   '@supabase/supabase-js':
     specifier: ^2.22.0

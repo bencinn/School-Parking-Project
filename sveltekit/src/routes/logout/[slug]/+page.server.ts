@@ -1,8 +1,7 @@
 import { database } from '$lib/supabaseClient';
 import type { Actions, PageData } from './$types';
 import { Client } from '@axiomhq/axiom-node';
-import { axiomtoken } from '$lib/token'
-import { axiomorgid } from '$lib/token'
+import { AxiomIn } from '$lib/token'
 import { ParkingZone } from '$lib/slotconfig';
 
 export async function load({ params }: { params: PageData }) {
@@ -17,23 +16,7 @@ export async function load({ params }: { params: PageData }) {
 export const actions: Actions = {
 	default: async ({ cookies, request }) => {
 		const formdata = await request.formData();
-		async function AxiomIn() {
-			const client = new Client({
-				token: axiomtoken,
-				orgId: axiomorgid,
-			});
 
-			await client.ingestEvents('school-parking-project', [{
-				parknumber: Number(formdata.get('whereis')),
-				parker_name: String(formdata.get('name')),
-				parker_surname: String(formdata.get('surname')),
-				parker_handler: String(formdata.get('handler')),
-				position: String(formdata.get('position')),
-				phone_number: String(formdata.get('phone')),
-				status: 'park_out'
-			}]);
-		}
-		AxiomIn();
 		console.log(formdata);
 		let { data: parkingLots, error } = await database
 			.from('Parking_lot')
@@ -41,10 +24,23 @@ export const actions: Actions = {
 			.eq('parked_where', Number(formdata.get('whereis')));
 		if (error) {
 			console.log(error);
-			return { success: false };
+
+
+    AxiomIn({whereis: Number(formdata.get('whereis')),
+        phone_number: String(formdata.get('tel')),
+      type: "parked-out",
+			error: true
+    });				return { success: false };
 		} else {
 			if (parkingLots === null) {
-				return { success: false };
+
+
+    AxiomIn({whereis: Number(formdata.get('whereis')),
+       
+        phone_number: String(formdata.get('tel')),
+      type: "parked-out",
+			error: true
+    });					return { success: false };
 			}
 			const matchingParkingLots = parkingLots.filter(
 				(parkingLot) => parkingLot.phone_number === formdata.get('tel')
@@ -58,11 +54,28 @@ export const actions: Actions = {
 
 				if (deleteError) {
 					console.log(deleteError);
-					return { success: false };
+
+    AxiomIn({whereis: Number(formdata.get('whereis')),
+        phone_number: String(formdata.get('tel')),
+      type: "parked-out",
+			error: true
+    });					return { success: false };
 				} else {
+
+    AxiomIn({whereis: Number(formdata.get('whereis')),
+        phone_number: String(formdata.get('tel')),
+      type: "parked-out",
+			error: false
+    });
 					return { success: true };
 				}
 			} else {
+
+    AxiomIn({whereis: Number(formdata.get('whereis')),
+        phone_number: String(formdata.get('tel')),
+      type: "parked-out",
+			error: true
+    });
 				return { success: false };
 			}
 		}

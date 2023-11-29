@@ -1,5 +1,5 @@
 export function FormatTime(date) {
-    let inp = new Date((typeof date === "string" ? new Date(date) : date).toISOString().toLocaleString("th-TH", {timeZone: 'Asia/Jakarta'}))
+    let inp = new Date((typeof date === "string" ? new Date(date) : date).toISOString().toLocaleString("th-TH", {timeZone: 'Asia/Bangkok'}))
     let tzdate = new Date(inp);
 
     let day = tzdate.getDate();

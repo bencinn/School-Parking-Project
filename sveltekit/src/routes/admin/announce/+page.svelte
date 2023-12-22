@@ -44,40 +44,8 @@
 			<input type="submit" id="btn" value="สร้างประกาศ" style="display: block; margin: auto;"/>
 		</form>
 	{:else}
-		<form method="POST" id="flgout">
-			<table id="admintable">
-				<tr style="border-bottom: 3px solid white;">
-					<td style="width: 5%; font-size: 14px">ยกเลิก<br>ประกาศ</td>
-					<td style="width: 65%;">ข้อความ</td>
-					<td style="width: 15%;">เริ่มประกาศ</td>
-					<td style="width: 15%">หมดประกาศ</td>
-				</tr>	
-				{#each Announce as announce}
-					<tr>
-						<td>
-							<div style="display: flex; justify-content: center; align-items: center;">
-								<input type="checkbox" name="unannounce"/>
-							</div>
-						</td>
-						<td>
-							<span style="color: white">
-								{announce.announcement}
-						 	</span>
-						</td>
-						<td>
-							<div style="color: white; text-align: center;">
-								{FormatTime(announce.start_date).slice(0, 10)}
-							</div>
-						</td>
-						<td>
-							<div style="color: white; text-align: center;">
-								{FormatTime(announce.end_date).slice(0, 10)}
-							</div>
-						</td>
-					</tr>
-				{/each}
-			</table>
-			<div>
+		<div id="flgout">
+			<form>
 				<div style="display: flex; justify-content: space-around; gap: 5px; margin: 15px 10px 15px 10px;">
 					<textarea placeholder="ใส่ข้อความประกาศที่นี่" style="resize: none; flex: 3; border-radius: 5px; padding: 5px; font-size: 16px;"></textarea>
 					<div style="display: flex; flex-direction: column; gap: 3px;">
@@ -113,8 +81,8 @@
 					<input type="submit" id="btn" value="สร้างประกาศเพิ่ม"/>
 					<input type="submit" id="logoutbtn" value="ยกเลิกประกาศ"/>
 				</div>
-			</div>
-		</form>
+			</form>
+		</div>
 	{/if}
 </fieldset>
 

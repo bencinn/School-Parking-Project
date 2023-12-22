@@ -1,6 +1,6 @@
 import { database } from '$lib/supabaseClient';
 import * as bcrypt from 'bcrypt';
-import type { PageData, Actions } from '../$types';
+import type { PageData, Actions } from './$types';
 
 export async function load({ params }: { params: PageData }) {
 	const { data, error } = await database.from('announcement').select('*');
@@ -37,5 +37,15 @@ export const actions: Actions = {
 			}
 		});
 		return { success: true };
+	},
+	delann: async ({ request }) => {
+		const formdata = await request.formData();
+		const id = formdata.get('id');
+		const { data, error } = await database.from('announcement').delete().eq('id', Number(id));
+		if (error === null) {
+			return { success: true };
+		} else {
+			return { success: false };
+		}
 	}
 };
